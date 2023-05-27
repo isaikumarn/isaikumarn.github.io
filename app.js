@@ -51,11 +51,14 @@ btn.addEventListener('click',function(e) {
         Username : "saikumarn012@gmail.com",
         Password : "A03B9495352D44E321087BB1BB6719FDA5A7",
         To : 'cynophilejourney@gmail.com',
-        From : rec_email,
+        From : "saikumarn012@gmail.com",
         Subject : rec_subject,
         Body : rec_body
     }).then(
         message => alert(message)
     );
+    // to clear the form data once mail is
+    var element = document.getElementById("rec_form");
+            element.reset()
 
 })
