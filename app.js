@@ -41,25 +41,21 @@ btn.addEventListener('click',function(e) {
     var rec_email= document.getElementById("rec_email").value ;
     var rec_subject= document.getElementById("rec_subject").value ;
     var rec_message= document.getElementById("rec_message").value ;
-    var rec_body = 'Name: ' + rec_name + '<br/> Email:' + rec_email + '<br/> Subject:' + rec_subject + '<br/> Message:' + rec_message;
+    var rec_body = 'Name: ' + rec_name + '<br/> Email: ' + rec_email + '<br/> Subject: ' + rec_subject + '<br/> Message: ' + rec_message;
 
     
     
     
     Email.send({
-        Host : "smtp.gmail.com",
-        Username : "flexera.fapi@gmail.com",
-        Password : "csnbzihyxrmytokl",
+        Host : "smtp.elasticemail.com",
+        Username : "saikumarn012@gmail.com",
+        Password : "A03B9495352D44E321087BB1BB6719FDA5A7",
         To : 'cynophilejourney@gmail.com',
         From : rec_email,
         Subject : rec_subject,
         Body : rec_body
     }).then(
-      function (message) {
-            return alert("Email Sent Successfully!");
-        }
+        message => alert(message)
     );
 
 })
-
-
