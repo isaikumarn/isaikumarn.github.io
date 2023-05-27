@@ -55,7 +55,10 @@ btn.addEventListener('click',function(e) {
         Subject : rec_subject,
         Body : rec_body
     }).then(
-        message => alert(message)
+       message => {
+            return alert('Mail Sent Successfully!');
+        
+        }
     );
     // to clear the form data once mail is
     var element = document.getElementById("rec_form");
