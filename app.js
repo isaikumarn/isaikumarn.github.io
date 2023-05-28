@@ -10,58 +10,84 @@
     document.querySelector(".theme-btn").addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
     })
-})();
 
-// Get the Download CV button element
-var downloadBtn = document.querySelector('.btn-con .main-btn');
+    // Get the Download CV button element
+    var downloadBtn = document.querySelector('.btn-con .main-btn');
 
-// Add a click event listener to the button
-downloadBtn.addEventListener('click', function(event) {
-  // Prevent the default behavior of the button
-  event.preventDefault();
+    // Add a click event listener to the button
+    downloadBtn.addEventListener('click', function(event) {
+        // Prevent the default behavior of the button
+        event.preventDefault();
 
-  // Create a link element
-  var link = document.createElement('a');
-  
-  // Set the download URL for the file
-  link.href = 'My_Resume.pdf';
-  
-  // Set the file name for the download
-  link.download = 'My_Resume.pdf';
-  
-  // Programmatically trigger the download
-  link.click();
-});
+        // Create a link element
+        var link = document.createElement('a');
 
+        // Set the download URL for the file
+        link.href = 'My_Resume.pdf';
 
-var btn= document.getElementById('rec_btn');
-btn.addEventListener('click',function(e) {
-    e.preventDefault()
-    var rec_name= document.getElementById("rec_name").value ;
-    var rec_email= document.getElementById("rec_email").value ;
-    var rec_subject= document.getElementById("rec_subject").value ;
-    var rec_message= document.getElementById("rec_message").value ;
-    var rec_body = 'Name: ' + rec_name + '<br/> Email: ' + rec_email + '<br/> Subject: ' + rec_subject + '<br/> Message: ' + rec_message;
+        // Set the file name for the download
+        link.download = 'My_Resume.pdf';
 
-    
-    
-    
-    Email.send({
-        Host : "smtp.elasticemail.com",
-        Username : "saikumarn012@gmail.com",
-        Password : "A03B9495352D44E321087BB1BB6719FDA5A7",
-        To : 'cynophilejourney@gmail.com',
-        From : "saikumarn012@gmail.com",
-        Subject : rec_subject,
-        Body : rec_body
-    }).then(
-       message => {
-            return alert('Mail Sent Successfully!');
+        // Programmatically trigger the download
+        link.click();
+    });
+
+    var btn = document.getElementById('rec_btn');
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
         
+        var rec_name = document.getElementById("rec_name").value;
+        var rec_email = document.getElementById("rec_email").value;
+        var rec_subject = document.getElementById("rec_subject").value;
+        var rec_message = document.getElementById("rec_message").value;
+        var rec_body = 'Name: ' + rec_name + '<br/> Email: ' + rec_email + '<br/> Subject: ' + rec_subject + '<br/> Message: ' + rec_message;
+    
+        // Reset error messages
+        var errorElements = document.querySelectorAll('.error-message');
+        errorElements.forEach(function (element) {
+            element.textContent = '';
+        });
+    
+        // Validate name
+        if (rec_name.trim() === '') {
+            document.getElementById('rec_name_error').textContent = 'Please enter your name.';
+            return;
         }
-    );
-    // to clear the form data once mail is
-    var element = document.getElementById("rec_form");
-            element.reset()
-
-})
+    
+        // Validate email format
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(rec_email)) {
+            document.getElementById('rec_email_error').textContent = 'Invalid email format.';
+            return;
+        }
+    
+        // Validate subject
+        if (rec_subject.trim() === '') {
+            document.getElementById('rec_subject_error').textContent = 'Please enter a subject.';
+            return;
+        }
+    
+        // Validate message
+        if (rec_message.trim() === '') {
+            document.getElementById('rec_message_error').textContent = 'Please enter a message.';
+            return;
+        }
+    
+        // Send the email
+        Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "saikumarn012@gmail.com",
+            Password: "A03B9495352D44E321087BB1BB6719FDA5A7",
+            To: 'cynophilejourney@gmail.com',
+            From: 'saikumarn012@gmail.com',
+            Subject: rec_subject,
+            Body: rec_body
+        }).then(function (message) {
+            alert('Mail Sent Successfully!');
+            
+            // Reset the form data
+            document.getElementById("rec_form").reset();
+        });
+    });
+    
+})();
