@@ -79,7 +79,7 @@
             Username: "dnd.onlymail@gmail.com",
             Password: "79CA55B926FC08B1D7F092335D8EB4C55ECB",
             To: 'isaikumarn@gmail.com',
-            From: 'dnd.onlymail@gmail.com,
+            From: 'dnd.onlymail@gmail.com',
             Subject: rec_subject,
             Body: rec_body
         }).then(function (message) {
