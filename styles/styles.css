@@ -615,7 +615,9 @@ section {
 }
 .contact-content-con .right-contact .submit-btn {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust this value to center the button vertically within the viewport */
 }
 
 /*Independed components*/
