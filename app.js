@@ -76,10 +76,10 @@
         // Send the email
         Email.send({
             Host: "smtp.elasticemail.com",
-            Username: "saikumarn012@gmail.com",
-            Password: "A03B9495352D44E321087BB1BB6719FDA5A7",
-            To: 'cynophilejourney@gmail.com',
-            From: 'saikumarn012@gmail.com',
+            Username: "dnd.onlymail@gmail.com",
+            Password: "79CA55B926FC08B1D7F092335D8EB4C55ECB",
+            To: 'isaikumarn@gmail.com',
+            From: 'dnd.onlymail@gmail.com,
             Subject: rec_subject,
             Body: rec_body
         }).then(function (message) {
