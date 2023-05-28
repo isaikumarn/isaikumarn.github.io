@@ -40,7 +40,7 @@
         var rec_email = document.getElementById("rec_email").value;
         var rec_subject = document.getElementById("rec_subject").value;
         var rec_message = document.getElementById("rec_message").value;
-        var rec_body = '<hr><b>Name:</b> ' + rec_name + '<br><b>Email:</b> ' + rec_email + '<br><b>Subject: </b>' + rec_subject + '<br><hr>'+ '<br>' + rec_message.replace(/\n/g, '<br>') +'<hr>';
+        var rec_body = '<hr><b>Name:</b> ' + rec_name + '<br><b>Email:</b> ' + rec_email + '<br><b>Subject: </b>' + rec_subject + '<br><hr>'+ '&nbsp;' + rec_message.replace(/\n/g, '<br>') +'<hr>';
     
         // Reset error messages
         var errorElements = document.querySelectorAll('.error-message');
